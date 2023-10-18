@@ -2,12 +2,23 @@ This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with
 
 ## Getting Started
 
-First, run the development server:
+First, install pnpm:
+
+```bash
+npm install -g pnpm
+```
+
+Then, install the dependencies:
+
+```bash
+pnpm install
+```
+
+## Developing
+Run the following:
 
 ```bash
 pnpm dev
-# or
-npm run dev
 ```
 
 Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
@@ -16,14 +27,33 @@ You can start editing the popup by modifying `popup.tsx`. It should auto-update 
 
 For further guidance, [visit our Documentation](https://docs.plasmo.com/)
 
+### Creating a Branch
+
+1. Open the Issue in browser tab
+2. Click the "Create a Branch" button
+3. Create Branch locally using the suggested name for consistency
+
+### Committing Changes
+
+Follow the recommended commit message format:
+
+```bash
+git commit -m "type(scope): subject"
+```
+Examples:
+
+```bash
+git commit -m "feat: add new feature"
+git commit -m "fix: fix a bug"
+git commit -m "docs: update docs"
+```
+
 ## Making production build
 
 Run the following:
 
 ```bash
 pnpm build
-# or
-npm run build
 ```
 
 This should create a production bundle for your extension, ready to be zipped and published to the stores.
