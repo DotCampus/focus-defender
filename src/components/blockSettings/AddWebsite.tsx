@@ -47,8 +47,8 @@ export default function AddWebsite() {
 
   const handleClick = async () => {
 if(isValidURL(website) === true) {
-    setBlockedWebsites([...blockedWebsites, website])
-    await storage.set("blockedWebsites", blockedWebsites)
+    setBlockedWebsites([website, ...blockedWebsites])
+    await storage.set("blockedWebsites", [website, ...blockedWebsites])
     toast("Website Added!", { position: "top-right", theme: "success" })
     setWebsite("")
 } else {
