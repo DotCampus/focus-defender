@@ -57,15 +57,15 @@ if(isValidURL(website) === true) {
 }
     
   }
-  const handleDelete = async (index: number) => {
+  const handleDelete = async (website: string) => {
     setBlockedWebsites(
-      blockedWebsites.filter((website: string, i: number) => i !== index)
+      blockedWebsites.filter((websiteFromStorage: string) => websiteFromStorage !== website)
     )
 
     // remove from local storage
     storage.set(
       "blockedWebsites",
-      blockedWebsites.filter((website: string, i: number) => i !== index)
+      blockedWebsites.filter((websiteFromStorage: string) => websiteFromStorage !== website)
     )
     toast("Website Removed!", { position: "top-right", theme: "success" })
   }
@@ -78,9 +78,9 @@ if(isValidURL(website) === true) {
       <div className="flex w-full justify-between">
         <div className="border-2 border-primary w-[50%] p-6 rounded-md">
           {blockedWebsites?.length !== 0 ? (
-            blockedWebsites?.map((website, index) => (
+            blockedWebsites?.map((website) => (
               <div
-                key={index}
+                key={website}
                 className="flex justify-between items-center bg-[#b6bedf] px-5 rounded-xl mb-2">
                 <p className="text-[#6d6c6c]">{website}</p>
                 <Button
@@ -88,7 +88,7 @@ if(isValidURL(website) === true) {
                   type="button"
                   variant="ghost"
                   size="icon"
-                  onClick={() => handleDelete(index)}>
+                  onClick={() => handleDelete(website)}>
                   <img src={DeleteIcon} alt="Delete_icon" className="w-6 h-6" />
                 </Button>
               </div>
